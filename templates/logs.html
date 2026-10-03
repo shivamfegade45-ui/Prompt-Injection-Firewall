@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Security Logs - Prompt Injection Firewall</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🛡️ Security Dashboard</h1>
+
+        <p>Prompt Injection Firewall Activity Logs</p>
+
+        {% if logs %}
+
+            {% for log in logs %}
+
+                <div class="log-entry">
+                    {{ log }}
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="result safe">
+                <h2>✅ No Logs Yet</h2>
+                <p>No security events have been recorded.</p>
+            </div>
+
+        {% endif %}
+
+        <a href="/" class="back-button">
+            ← Back to Firewall
+        </a>
+
+    </div>
+
+</body>
+</html>

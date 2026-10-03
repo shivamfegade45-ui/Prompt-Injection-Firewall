@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prompt Injection Firewall</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🛡️ Prompt Injection Firewall</h1>
+
+        <p>
+            Scan your input or PDF before it reaches an AI agent.
+        </p>
+
+        <form method="POST"
+              action="/scan"
+              enctype="multipart/form-data">
+
+            <textarea
+                name="user_input"
+                placeholder="Enter your message here..."></textarea>
+
+            <p><strong>OR upload a PDF</strong></p>
+
+            <input
+                type="file"
+                name="document"
+                accept=".pdf">
+
+            <button type="submit">
+                🔍 Scan Input
+            </button>
+
+        </form>
+
+        <a href="/logs" class="back-button">
+            🛡️ Security Dashboard
+        </a>
+
+    </div>
+
+</body>
+
+</html>

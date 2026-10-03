@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scan Result - Prompt Injection Firewall</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🛡️ Scan Result</h1>
+
+        {% if safe %}
+
+            <div class="result safe">
+                <h2>✅ SAFE</h2>
+
+                <p>No prompt injection detected.</p>
+
+                <p>
+                    <strong>Risk Level:</strong> {{ risk }}
+                </p>
+
+                <div class="agent-response">
+                    <h3>🤖 AI Agent</h3>
+                    <p>{{ agent_response }}</p>
+                </div>
+            </div>
+
+        {% else %}
+
+            <div class="result blocked">
+                <h2>🚫 BLOCKED</h2>
+
+                <p>Prompt injection detected.</p>
+
+                <p>
+                    <strong>Attack Type:</strong>
+                    {{ attacks }}
+                </p>
+
+                <p>
+                    <strong>Risk Level:</strong>
+                    {{ risk }}
+                </p>
+
+                <div class="agent-response">
+                    <h3>🛡️ AI Agent Protection</h3>
+                    <p>{{ agent_response }}</p>
+                </div>
+            </div>
+
+        {% endif %}
+
+        <a href="/" class="back-button">
+            ← Scan Another Input
+        </a>
+
+    </div>
+
+</body>
+</html>
